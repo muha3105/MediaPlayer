@@ -1,4 +1,4 @@
-package sample;
+package Presentation.Resources;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

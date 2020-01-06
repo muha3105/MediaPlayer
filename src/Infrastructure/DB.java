@@ -3,6 +3,8 @@ package Infrastructure;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -36,6 +38,12 @@ public class DB {
     private static boolean terminated = false;
     
     private DB(){    
+    }
+    static {
+        Properties props = new Properties();
+        Path dbPropPath = Paths.get("db.properties");
+        String fileName = dbPropPath.toString();
+        InputStream input;
     }
 //
     static {

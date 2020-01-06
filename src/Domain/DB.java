@@ -37,7 +37,7 @@ public class DB {
     
     private DB(){    
     }
-
+//
     static {
         Properties props = new Properties();
         String fileName = "db.properties";

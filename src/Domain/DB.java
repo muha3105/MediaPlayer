@@ -1,3 +1,5 @@
+package Domain;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,9 +37,7 @@ public class DB {
     
     private DB(){    
     }
-    /**
-     * Static initializer - no object construction
-     */
+
     static {
         Properties props = new Properties();
         String fileName = "db.properties";

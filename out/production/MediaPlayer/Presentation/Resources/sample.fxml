@@ -1,8 +1,22 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="Application.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+    <children>
+        <TextField layoutX="86.0" layoutY="186.0" prefHeight="34.0" prefWidth="251.0" promptText="Search title or category" />
+        <TextField layoutX="444.0" layoutY="190.0" promptText="Playlist name" />
+        <JFXButton layoutX="726.0" layoutY="139.0" prefHeight="32.0" prefWidth="126.0" text="Delete Playlist" />
+        <JFXButton layoutX="374.0" layoutY="392.0" onAction="#listViewButtonPushed" text="Add song" />
+        <JFXButton layoutX="730.0" layoutY="97.0" prefHeight="32.0" prefWidth="118.0" text="Open playlist" />
+        <JFXButton layoutX="742.0" layoutY="191.0" text="Remove song" />
+        <JFXButton layoutX="595.0" layoutY="140.0" text="Create playlist" />
+      <JFXButton layoutX="354.0" layoutY="187.0" text="Search" />
+      <ListView fx:id="listView" layoutX="78.0" layoutY="370.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id="textArea" layoutX="571.0" layoutY="340.0" prefHeight="200.0" prefWidth="200.0" />
+    </children>
+</Pane>

@@ -22,15 +22,7 @@ public class DBTester {
         
 
         
-        System.out.println("numberOfColumns="+DB.getNumberOfColumns());
-        do{
-           String data = DB.getData();
-           if (data.equals(DB.NOMOREDATA)){
-               break;
-           }else{
-               System.out.print(data);
-           }   
-        } while(true);
+
        
     }
     

@@ -8,7 +8,7 @@ public class DBTester {
 
     public static void main (String [] args){
         
-//How is this showed
+
 
 
         do{

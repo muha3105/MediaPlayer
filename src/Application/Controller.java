@@ -1,50 +1,71 @@
 package Application;
 
+
+import Domain.Search;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TableView;
+import java.net.URL;
+import java.util.ResourceBundle;
 import Domain.DB;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
-public class Controller {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Controller implements Initializable {
 
     @FXML
-    ListView listView;
+    TableView<Search> tbData, tbData2;
     @FXML
-    TextArea textArea;
+    TableColumn<Search, String> title;
 
+    @FXML
+    TableColumn<Search, String> category;
 
-    public void initialize() {
-        DB.selectSQL("Select title from tblVideos");
+    @FXML
+    TableColumn<Search, String> title2;
 
-
-
-        for (int i = 0; i < 2; i++) {
-            listView.getItems().addAll(DB.getDisplayData());
-        }
-
-        listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    @FXML
+    TableColumn<Search, String> category2;
 
 
 
 
-        }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        title.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        category.setCellValueFactory(new PropertyValueFactory<>("Category"));
 
+        title2.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        category2.setCellValueFactory(new PropertyValueFactory<>("Category"));
 
-        public void listViewButtonPushed(){
-        String textAreaString = "";
-            ObservableList listOfItems = listView.getSelectionModel().getSelectedItems();
+        tbData.setItems(search);
+    }
 
-            for (Object item : listOfItems)
-            {
-                textAreaString += String.format("%s%n",(String) item);
-            }
-            this.textArea.setText(textAreaString);
+    private ObservableList<Search> search = FXCollections.observableArrayList(
+            new Search("Chandalier","Music"),
+            new Search("hello", "adele")
+    );
+
+    public void select() {
+        Search selection = tbData.getSelectionModel().getSelectedItem();
+
+        if (selection != null) {
+
+            tbData2.getItems().add(new Search(selection.getTitle(), selection.getCategory()));
         }
     }
+}
 
 
 
